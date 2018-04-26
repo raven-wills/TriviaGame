@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Butcherman|Ubuntu:500" rel="stylesheet">
+    <title>Trivia Game</title>
+</head>
+
+<body>
+    <header>Urban Legend Trivia Game</header>
+    <h2 id="timer"></h2>
+
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand second-hand"></div>
+        </div>
+    </div>
+
+    <div id="btnStart" onclick="startGame()">Ready?</div>
+    <div id="btnOver" onclick="">Play Again?</div>
+
+    <div id="message-container">
+        <p id="message"></p>
+    </div>
+    <div id="buttons">
+        <h3 id="question"></h3>
+        <button id="ans1"></button>
+        <button id="ans2"></button>
+        <button id="ans3"></button>
+        <button id="ans4"></button>
+    </div>
+    <div id="score">
+        <p id="correct"></p>
+        <p id="incorrect"></p>
+        <p id="unanswered"></p>
+    </div>
+
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
