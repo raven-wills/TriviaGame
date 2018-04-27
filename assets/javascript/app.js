@@ -33,12 +33,24 @@ var unanswered = 0;
 var number = 10;
 var intervalId;
 
-$("button").click(function(event) {
-  answer(event.currentTarget.innerText);
-});
+function resetGame() {
+  currentQuestion = 0;
+  correctAns = 0;
+  incorrectAns = 0;
+  unanswered = 0;
+  number = 10;
+  showQuestions();
+  // intervalId;
+  // $("#timer").css("display", "initial");
+  $(".clock").css("display", "block");
+  $("#score").css("display", "none");
+  $("#buttons").css("display", "block");
+  $("#btnOver").css("display", "none");
+  startGame();
+}
 
 function startGame() {
-  $("#timer").css("display", "initial");
+  // $("#timer").css("display", "initial");
   $("#buttons").css("display", "initial");
   run();
 }
@@ -56,7 +68,7 @@ function run() {
 
 function decrement() {
   number--;
-  $("#timer").html(number);
+  // $("#timer").html(number);
 
   var secondsDegrees = number * 36 + 90;
   $(".second-hand").css("transform", "rotate(" + secondsDegrees + "deg)");
@@ -91,19 +103,17 @@ function answer(answerString) {
   } else {
     showMessage("Incorrect!");
     incorrectAns++;
-    $();
   }
-  console.log(correctAns);
 }
 
 function stop() {
   clearInterval(intervalId);
 }
 
-stop();
-
 function showQuestions() {
+  console.log("Showing question: " + currentQuestion);
   if (currentQuestion < quiz.length) {
+    console.log(...Object.entries(quiz[currentQuestion]));
     // When true, quiz in progress
     $("#question").text(quiz[currentQuestion].question);
     $("#ans1").text(quiz[currentQuestion].choices[0]);
@@ -116,8 +126,6 @@ function showQuestions() {
     stop();
   }
 }
-
-showQuestions();
 
 function nextQuestion() {
   $(".second-hand").css("transform", "rotate(90deg)");
@@ -133,23 +141,14 @@ function endScreen() {
   $("#correct").text("Correct Answers: " + correctAns);
   $("#incorrect").text("Incorrect Answers: " + incorrectAns);
   $("#unanswered").text("Timed-Out: " + unanswered);
+  $("#unanswered").text("Timed-current: " + currentQuestion);
   $("#score").css("display", "initial");
   $(".clock").css("display", "none");
-  $("#timer").css("display", "none");
   stop();
 }
 
-function resetGame() {
-  currentQuestion = 0;
-  correctAns = 0;
-  incorrectAns = 0;
-  unanswered = 0;
-  number = 10;
-  intervalId;
-  $("#timer").css("display", "initial");
-  $(".clock").css("display", "block");
-  $("#score").css("display", "none");
-  $("#buttons").css("display", "initial");
-  $("#btnOver").css("display", "none");
-  startGame();
-}
+$("button").click(function(event) {
+  answer(event.currentTarget.innerText);
+});
+
+showQuestions();
