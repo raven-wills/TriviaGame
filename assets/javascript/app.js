@@ -111,9 +111,7 @@ function stop() {
 }
 
 function showQuestions() {
-  console.log("Showing question: " + currentQuestion);
   if (currentQuestion < quiz.length) {
-    console.log(...Object.entries(quiz[currentQuestion]));
     // When true, quiz in progress
     $("#question").text(quiz[currentQuestion].question);
     $("#ans1").text(quiz[currentQuestion].choices[0]);
@@ -141,7 +139,6 @@ function endScreen() {
   $("#correct").text("Correct Answers: " + correctAns);
   $("#incorrect").text("Incorrect Answers: " + incorrectAns);
   $("#unanswered").text("Timed-Out: " + unanswered);
-  $("#unanswered").text("Timed-current: " + currentQuestion);
   $("#score").css("display", "initial");
   $(".clock").css("display", "none");
   stop();
