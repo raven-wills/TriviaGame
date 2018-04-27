@@ -20,6 +20,8 @@ header {
   height: 80px;
   padding-top: 20px;
   margin: auto;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 #btnOver {
@@ -30,6 +32,8 @@ header {
   height: 120px;
   padding: 20px 80px;
   margin: auto;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 #timer {

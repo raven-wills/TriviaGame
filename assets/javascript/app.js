@@ -8,22 +8,22 @@ var quiz = [
       "They are cautionary tales"
     ],
     answer: "They reflect our fears"
+  },
+  {
+    question: "Who studies urban legends?",
+    choices: ["Mythologist", "Anthropologist", "Folklorist", " Cereologists"],
+    answer: "Folklorist"
+  },
+  {
+    question: "When did the term 'Urban Legend' first appear?",
+    choices: ["1930s", "1940s", "1950s", "1960s"],
+    answer: "1960s"
+  },
+  {
+    question: "Where does the 'Boggy Creek Monster' originate?",
+    choices: ["Texas", "Mississippi", "Louisiana", "Arkansas"],
+    answer: "Arkansas"
   }
-  // {
-  //   question: "Who studies urban legends?",
-  //   choices: ["Mythologist", "Anthropologist", "Folklorist", " Cereologists"],
-  //   answer: "Folklorist"
-  // }
-  // {
-  //   question: "When did the term 'Urban Legend' first appear?",
-  //   choices: ["1930s", "1940s", "1950s", "1960s"],
-  //   answer: "1960s"
-  // },
-  // {
-  //   question: "Where does the 'Boggy Creek Monster' originate?",
-  //   choices: ["Texas", "Mississippi", "Louisiana", "Arkansas"],
-  //   answer: "Arkansas"
-  // }
 ];
 
 var currentQuestion = 0;
@@ -34,7 +34,6 @@ var number = 10;
 var intervalId;
 
 $("button").click(function(event) {
-  console.log(event.currentTarget.innerText);
   answer(event.currentTarget.innerText);
 });
 
@@ -138,4 +137,19 @@ function endScreen() {
   $(".clock").css("display", "none");
   $("#timer").css("display", "none");
   stop();
+}
+
+function resetGame() {
+  currentQuestion = 0;
+  correctAns = 0;
+  incorrectAns = 0;
+  unanswered = 0;
+  number = 10;
+  intervalId;
+  $("#timer").css("display", "initial");
+  $(".clock").css("display", "block");
+  $("#score").css("display", "none");
+  $("#buttons").css("display", "initial");
+  $("#btnOver").css("display", "none");
+  startGame();
 }
